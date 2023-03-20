@@ -1,0 +1,42 @@
+//Change the value of the myStruct member foo, inside the function f, to 4.
+//Create a new struct myMemStruct2 with the data location memory inside the function f and assign it the value of myMemStruct. Change the value of the myMemStruct2 member foo to 1.
+//Create a new struct myMemStruct3 with the data location memory inside the function f and assign it the value of myStruct. Change the value of the myMemStruct3 member foo to 3.
+//Let the function f return myStruct, myMemStruct2, and myMemStruct3.
+pragma solidity >=0.8.2 <0.9.0;
+
+contract DataLocations {
+    uint[] public arr;
+    mapping(uint => address) map;
+    struct MyStruct {
+        uint foo;
+    }
+    mapping(uint => MyStruct) myStructs;
+
+    function f() public {
+       
+        _f(arr, map, myStructs[1]);
+
+        
+        MyStruct storage myStruct = myStructs[1];
+       
+        MyStruct memory myMemStruct = MyStruct(0);
+    }
+
+    function _f(
+        uint[] storage _arr,
+        mapping(uint => address) storage _map,
+        MyStruct storage _myStruct
+     ) internal {
+    }
+
+   
+    function g(uint[] memory _arr) public returns (uint[] memory) {
+       
+    }
+
+    function h(uint[] calldata _arr) external {
+        
+    }
+}
+
+
